@@ -1,4 +1,5 @@
 import discord
+from discord.ext import tasks
 from discord import app_commands  # ★スラッシュコマンド用のパーツを追加
 from datetime import datetime, timezone, timedelta
 import asyncio
