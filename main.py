@@ -8,6 +8,13 @@ from flask import Flask
 import threading
 import imageio_ffmpeg
 
+# .env ファイルがあれば読み込む（手動起動・ローカル開発用。systemd では EnvironmentFile を使う）
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+
 # --- Webサーバー設定 ---
 app = Flask('')
 @app.route('/')
@@ -174,3 +181,5 @@ server_thread.start()
 
 if TOKEN:
     bot.run(TOKEN)
+else:
+    print("❌ 環境変数 DISCORD_BOT_TOKEN が設定されていません。.env または systemd の EnvironmentFile を確認してください。", flush=True)
