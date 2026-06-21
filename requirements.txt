@@ -2,4 +2,3 @@ discord.py
 PyNaCl
 Flask
 imageio-ffmpeg
-davey
